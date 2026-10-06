@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tender Document Package Builder</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+</head>
+<body>
+  <header class="top">
+    <h1 data-i18n="title"></h1>
+    <div class="lang" role="group" aria-label="Language">
+      <button id="btnEn" class="btn small">English</button>
+      <button id="btnBn" class="btn small">বাংলা</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2 data-i18n="step1"></h2>
+      <label class="btn" for="reqInput" data-i18n="loadReq"></label>
+      <input id="reqInput" type="file" accept=".json,application/json" hidden>
+      <div id="tender"></div>
+    </section>
+
+    <section class="card">
+      <h2 data-i18n="step2"></h2>
+      <label class="btn" for="pdfInput" data-i18n="upload"></label>
+      <input id="pdfInput" type="file" multiple hidden>
+      <div id="notes" aria-live="polite"></div>
+      <div id="fileList"></div>
+    </section>
+
+    <section class="card">
+      <div class="head-row">
+        <h2 data-i18n="step3"></h2>
+        <div class="tools">
+          <button id="btnAuto" class="btn small ghost" data-i18n="autoMatch"></button>
+          <button id="btnUndo" class="btn small ghost" data-i18n="undo"></button>
+          <button id="btnCsv" class="btn small ghost" data-i18n="exportCsv"></button>
+        </div>
+      </div>
+      <div id="summary" class="summary" aria-live="polite"></div>
+      <div id="reqList"></div>
+    </section>
+
+    <section class="card">
+      <h2 data-i18n="step4"></h2>
+      <div id="reasons" aria-live="polite"></div>
+      <button id="btnGen" class="btn big" data-i18n="generate"></button>
+      <div id="result" aria-live="polite"></div>
+      <p class="muted" data-i18n="restoreNote"></p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
